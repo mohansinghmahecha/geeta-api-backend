@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 console.log("🔑 Gemini Key:", process.env.GEMINI_API_KEY ? "YES" : "NO");
+app.get("/", (req, res) => {
+  res.send("🕉️ Gita AI API is active and awaiting your command.");
+});
 app.use("/gita", gitaRoutes);
 app.listen(5000, () => {
   console.log("Gita AI (Gemini Version) running on port 5000...");
